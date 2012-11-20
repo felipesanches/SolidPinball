@@ -1,5 +1,8 @@
 # Slingshots for a pinball machine
 #
+# This is part of the SolidPinball library:
+#  a digital fabrication framework for pinball manufacturing 
+#
 # (c)2012 Felipe Sanches <fsanches@metamaquina.com.br>
 # licensed under GPLv3 or later
 

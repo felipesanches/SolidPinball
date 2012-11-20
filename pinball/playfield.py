@@ -1,5 +1,8 @@
 # Class representing a playfield for a pinball machine
 #
+# This is part of the SolidPinball library:
+#  a digital fabrication framework for pinball manufacturing 
+#
 # (c)2012 Felipe Sanches <fsanches@metamaquina.com.br>
 # licensed under GPLv3 or later
 
@@ -13,6 +16,17 @@ class Playfield(object):
     self.thickness = thickness
     self.parts = []
 
+  def append_parts(self, parts):
+    for item in parts:
+      p = item['part']
+      p.position = item['position']
+
+      if 'rotation' in item.keys():
+        p.rotation = item['rotation']
+      else:
+        p.rotation = 0
+      self.parts.append(p)
+
   def append(self, part, position, rotation=0):
     part.position = position
     part.rotation = rotation
@@ -20,8 +34,10 @@ class Playfield(object):
 
   def wood(self):
     pf_wood = \
-    translate([0,0, -self.thickness])(
-      cube([self.width, self.height, self.thickness])
+    color("BurlyWood")(
+      translate([0,0, -self.thickness])(
+        cube([self.width, self.height, self.thickness])
+      )
     )
 
     for part in self.parts:
