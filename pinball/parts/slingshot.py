@@ -18,7 +18,7 @@ class Slingshot(PinballPart):
 
   def part_model(self):
     #TODO: implement-me!
-    return cube([0,0,0])
+    return None
 
   def mount_holes_2d(self):
     radius = 8
@@ -53,5 +53,5 @@ if __name__ == '__main__':
   pf.append(Slingshot(angle = 30), [100,100])
   pf.append(Slingshot(angle = 180-30), [300,100])
 
-  scad_render_to_file( pf.assembly(), 'slingshot.scad')
+  scad_render_to_file( pf.assembly(), '/tmp/slingshot_example.scad')
 

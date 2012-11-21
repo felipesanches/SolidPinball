@@ -17,8 +17,7 @@ class BallHole(PinballPart):
     self.radius = radius
 
   def part_model(self):
-    #TODO: implement-me!
-    return empty_3d()
+    return None
 
   def mount_holes(self):
     epsilon = 0.1

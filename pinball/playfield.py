@@ -41,11 +41,12 @@ class Playfield(object):
     )
 
     for part in self.parts:
-      pf_wood -= translate(part.position)(
-        rotate([0,0,part.rotation])(
-          part.mount_holes()
+      if part.mount_holes():
+        pf_wood -= translate(part.position)(
+          rotate([0,0,part.rotation])(
+            part.mount_holes()
+          )
         )
-      )
 
     return pf_wood
 
@@ -53,10 +54,53 @@ class Playfield(object):
     asm = self.wood()
 
     for part in self.parts:
-      asm += translate(part.position)(
-        rotate([0,0,part.rotation])(
-          part.part_model()
+      if part.part_model():
+        asm += translate(part.position)(
+          rotate([0,0,part.rotation])(
+            part.part_model()
+          )
         )
-      )
     return asm
+
+if __name__ == '__main__':
+# This is an example on how to design a pinball playfield using SolidPinball.
+
+  from pinball.parts.ballhole import BallHole
+  from pinball.parts.flipper import Flipper 
+  from pinball.parts.slingshot import Slingshot 
+  from pinball.parts.popbumper import PopBumper
+  from pinball.parts.laneguide import LaneGuide
+#TODO:  from pinball.parts.post import Post
+#TODO:  from pinball.parts.rubber import Rubber
+#TODO:  from pinball.parts.standuptarget import StandupTarget
+#TODO:  from pinball.parts.droptarget import DropTarget
+
+  pf_width = 600
+  pf_height = 1200
+
+  pf = Playfield(pf_width, pf_height)
+  pf.append_parts([
+    {'part': BallHole(), 'position': [pf_width/2,60] }, #ball drain
+    {'part': BallHole(), 'position': [510, 720] },
+    {'part': BallHole(), 'position': [200, 630] },
+    {'part': BallHole(), 'position': [120, 670] },
+    {'part': Flipper(angle=-42, rubber_color="orangered"), 'position': [pf_width/2 - 100, 200] },
+    {'part': Flipper(angle=180+42, rubber_color="orangered"), 'position': [pf_width/2 + 100, 200] },
+    {'part': Slingshot(angle=-70), 'position': [pf_width/2 - 130, 330] },
+    {'part': Slingshot(angle=+70), 'position': [pf_width/2 + 130, 330] },
+    {'part': PopBumper(cap_color="darkred"), 'position': [330, 630] },
+    {'part': PopBumper(cap_color="darkblue"), 'position': [380, 690] },
+    {'part': PopBumper(cap_color="darkgreen"), 'position': [410, 580] },
+    {'part': LaneGuide(), 'position': [210, 920, 8] },
+    {'part': LaneGuide(), 'position': [260, 900, 8] },
+    {'part': LaneGuide(), 'position': [310, 920, 8] }
+  ])
+
+#This exports the design to a .scad file that you can render with OpenSCAD
+#Available for download at www.openscad.org
+  scad_render_to_file( pf.assembly(), '/tmp/playfield_assembly_example.scad')
+
+# You may also try this to render only the playfield wood with the holes you need:
+# Exporting it to an STL file you can CNC mill your own pinball playfield! 
+  scad_render_to_file( pf.wood(), '/tmp/playfield_wood_example.scad')
 

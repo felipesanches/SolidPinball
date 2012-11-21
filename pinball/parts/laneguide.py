@@ -24,9 +24,6 @@ class LaneGuide(PinballPart):
     self.width=17.71-self.thickness;
     self.attachments_height = 5.3;
 
-  def mount_holes_2d(self):
-    return circle(r=0); #the lane itself does not require holes
-
   def part_model(self):
     return rotate([0,0,90])(
       color(self.color)(
