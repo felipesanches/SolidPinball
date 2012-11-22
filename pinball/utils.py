@@ -8,6 +8,7 @@ from math import cos, sin, pi
 
 inch=25.4
 DEFAULT_PF_THICKNESS = 15
+m3_diameter = 3
 
 #These are ugly hacks. We got to figure out something better...
 def empty_3d():

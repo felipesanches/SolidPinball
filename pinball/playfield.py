@@ -70,7 +70,7 @@ if __name__ == '__main__':
   from pinball.parts.slingshot import Slingshot 
   from pinball.parts.popbumper import PopBumper
   from pinball.parts.laneguide import LaneGuide
-#TODO:  from pinball.parts.post import Post
+  from pinball.parts.post import Post
 #TODO:  from pinball.parts.rubber import Rubber
 #TODO:  from pinball.parts.standuptarget import StandupTarget
 #TODO:  from pinball.parts.droptarget import DropTarget
@@ -93,7 +93,8 @@ if __name__ == '__main__':
     {'part': PopBumper(cap_color="darkgreen"), 'position': [410, 580] },
     {'part': LaneGuide(), 'position': [210, 920, 8] },
     {'part': LaneGuide(), 'position': [260, 900, 8] },
-    {'part': LaneGuide(), 'position': [310, 920, 8] }
+    {'part': LaneGuide(), 'position': [310, 920, 8] },
+    {'part': Post(), 'position': [360, 500] }
   ])
 
 #This exports the design to a .scad file that you can render with OpenSCAD
