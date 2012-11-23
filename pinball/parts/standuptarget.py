@@ -73,7 +73,6 @@ class RectangularStandupTarget(StandupTarget):
     super(RectangularStandupTarget, self).__init__(**kwargs)
     self.width = width
     self.height = height
-    print "[RectangularStandupTarget] width: %d, height: %d" % (width, height)
 
   def target(self):
     return \
