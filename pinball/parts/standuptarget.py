@@ -62,7 +62,9 @@ class RoundStandupTarget(StandupTarget):
     return \
     translate([0,0,self.target_height])(
       rotate([90, 0, 0])(
-        cylinder(r=self.radius, h=self.thickness)
+        color(self.target_color)(
+          cylinder(r=self.radius, h=self.thickness)
+        )
       )
     )
 
