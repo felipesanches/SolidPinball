@@ -141,8 +141,8 @@ def popbumper_cap(game, version, capcolor):
 
 class PopBumper(PinballPart):
 
-  def __init__(self, game="partyland", version="msdos", cap_color="black", wafer_color="beige", hit_ring_height=35, playfield_thickness=DEFAULT_PF_THICKNESS, segments=40):
-    PinballPart.__init__(self, playfield_thickness, segments)
+  def __init__(self, game="partyland", version="msdos", cap_color="black", wafer_color="beige", hit_ring_height=35, **kwargs):
+    super(PopBumper, self).__init__(**kwargs)
     self.game = game
     self.version = version
     self.cap_color = cap_color

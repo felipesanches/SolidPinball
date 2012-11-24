@@ -12,8 +12,8 @@ from pinball.parts.PinballPart import PinballPart
 
 class Rubber(PinballPart):
 
-  def __init__(self, playfield_thickness=DEFAULT_PF_THICKNESS, segments=40, rubber_height=20, rubber_radius=3, posts=[[0,0,7], [50,0,7]]):
-    PinballPart.__init__(self, playfield_thickness, segments)
+  def __init__(self, rubber_height=20, rubber_radius=3, posts=[[0,0,7], [50,0,7]], **kwargs):
+    super(Rubber, self).__init__(**kwargs)
     self.rubber_height = float(rubber_height)
     self.rubber_radius = float(rubber_radius)
     self.posts = posts

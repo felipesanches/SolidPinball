@@ -12,8 +12,8 @@ from pinball.parts.PinballPart import PinballPart
 
 class BallHole(PinballPart):
 
-  def __init__(self, playfield_thickness=DEFAULT_PF_THICKNESS, segments=40, radius=15):
-    PinballPart.__init__(self, playfield_thickness, segments)
+  def __init__(self, radius=15, **kwargs):
+    super(BallHole, self).__init__(**kwargs)
     self.radius = radius
 
   def part_model(self):

@@ -13,10 +13,11 @@ from pinball.parts.PinballPart import PinballPart
 class LaneGuide(PinballPart):
   #WMS part no. 03-8318-XX. Red is #03-8318-9
 
-  def __init__(self, color="darkred", playfield_thickness=DEFAULT_PF_THICKNESS, segments=40):
-    PinballPart.__init__(self, playfield_thickness, segments)
+  def __init__(self, color="darkred", **kwargs):
+    super(LaneGuide, self).__init__(**kwargs)
     self.color = color
 
+    #hardcoded parameters (should we have some of these as constructor params?)
     self.height=18.3;
     self.length=28.55;
     self.thickness=1.34;

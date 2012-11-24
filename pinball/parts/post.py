@@ -12,8 +12,8 @@ from pinball.parts.PinballPart import PinballPart
 
 class Post(PinballPart):
 
-  def __init__(self, playfield_thickness=DEFAULT_PF_THICKNESS, segments=40, radius=10, height=30, rubber_radius=2, rubber_height=20):
-    PinballPart.__init__(self, playfield_thickness, segments)
+  def __init__(self, radius=10, height=30, rubber_radius=2, rubber_height=20, **kwargs):
+    super(Post, self).__init__(**kwargs)
     self.radius = radius
     self.height = height
     self.rubber_radius = rubber_radius

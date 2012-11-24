@@ -12,8 +12,8 @@ from pinball.parts.PinballPart import PinballPart
 
 class Slingshot(PinballPart):
 
-  def __init__(self, playfield_thickness=DEFAULT_PF_THICKNESS, segments=40, angle=60):
-    PinballPart.__init__(self, playfield_thickness, segments)
+  def __init__(self, angle=60, **kwargs):
+    super(Slingshot, self).__init__(**kwargs)
     self.angle = angle
 
   def part_model(self):

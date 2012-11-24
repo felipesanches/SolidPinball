@@ -17,8 +17,8 @@ from pinball.parts.PinballPart import PinballPart
 
 class Flipper(PinballPart):
 
-  def __init__(self, angle=35, L=90, R=10, r=5, H=24, h=8, rubber_r=4, rubber_color="black", playfield_thickness=DEFAULT_PF_THICKNESS, segments=40):
-    PinballPart.__init__(self, playfield_thickness, segments)
+  def __init__(self, angle=35, L=90, R=10, r=5, H=24, h=8, rubber_r=4, rubber_color="black", **kwargs):
+    super(Flipper, self).__init__(**kwargs)
     self.angle = angle
     self.L = L
     self.R = R
