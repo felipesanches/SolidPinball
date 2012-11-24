@@ -42,7 +42,7 @@ class StandupTarget(PinballPart):
     holes = \
     minkowski()(
       projection(cut = True)(
-        translate([0,0,-self.target_height/2])(
+        translate([0,0,-self.target_height])(
           self.target(),
           self.switch_body()
         )
