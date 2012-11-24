@@ -10,10 +10,11 @@ from pinball.utils import *
 from pyopenscad import *
 
 class Playfield(object):
-  def __init__(self, width, height, thickness=DEFAULT_PF_THICKNESS):
+  def __init__(self, width, height, position=[0,0,0], thickness=DEFAULT_PF_THICKNESS):
     self.width = width
     self.height = height
     self.thickness = thickness
+    self.position = position
     self.parts = []
 
   def append_parts(self, parts):
@@ -48,7 +49,7 @@ class Playfield(object):
           )
         )
 
-    return pf_wood
+    return translate(self.position)(pf_wood)
 
   def assembly(self):
     asm = self.wood()
@@ -60,7 +61,7 @@ class Playfield(object):
             part.part_model()
           )
         )
-    return asm
+    return translate(self.position)(asm)
 
 if __name__ == '__main__':
 # This is an example on how to design a pinball playfield using SolidPinball.
