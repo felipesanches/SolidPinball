@@ -69,7 +69,7 @@ if __name__ == '__main__':
   from pinball.parts.flipper import Flipper 
   from pinball.parts.slingshot import Slingshot 
   from pinball.parts.popbumper import PopBumper
-  from pinball.parts.laneguide import LaneGuide
+  from pinball.parts.laneguide import LaneGuideAssembly
   from pinball.parts.post import Post
   from pinball.parts.standuptarget import RoundStandupTarget, NarrowStandupTarget, WideStandupTarget
 #TODO:  from pinball.parts.rubber import Rubber
@@ -91,9 +91,9 @@ if __name__ == '__main__':
     {'part': PopBumper(cap_color="darkred"), 'position': [330, 630] },
     {'part': PopBumper(cap_color="darkblue"), 'position': [380, 690] },
     {'part': PopBumper(cap_color="darkgreen"), 'position': [410, 580] },
-    {'part': LaneGuide(), 'position': [210, 920, 8] },
-    {'part': LaneGuide(), 'position': [260, 900, 8] },
-    {'part': LaneGuide(), 'position': [310, 920, 8] },
+    {'part': LaneGuideAssembly(), 'position': [210, 920] },
+    {'part': LaneGuideAssembly(), 'position': [260, 900] },
+    {'part': LaneGuideAssembly(), 'position': [310, 920] },
     {'part': RoundStandupTarget(), 'position': [40, 820], 'rotation': 30 },
     {'part': NarrowStandupTarget(), 'position': [80, 840] },
     {'part': WideStandupTarget(), 'position': [120, 820], 'rotation': -30 },

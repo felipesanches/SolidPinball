@@ -9,6 +9,7 @@
 from pyopenscad import *
 from pinball.utils import *
 from pinball.parts.PinballPart import PinballPart
+from pinball.parts.post import Post
 
 class LaneGuide(PinballPart):
   #WMS part no. 03-8318-XX. Red is #03-8318-9
@@ -81,13 +82,48 @@ class LaneGuide(PinballPart):
       )
     return att
 
+class LaneGuideAssembly(PinballPart): #create an Assembly class?!
+  #TODO: add mount screws
+  def __init__(self, **kwargs):
+    super(LaneGuideAssembly,self).__init__(**kwargs)
+    self.lguide = LaneGuide()
+    self.p1 = Post()
+    self.p2 = Post()
+
+  def part_model(self):
+    return \
+    union()(
+      self.laneguide(),
+      self.posts()
+    )
+
+  def mount_holes(self):
+    return None
+
+  def laneguide(self):
+    return \
+    translate([0, 0, 14])(
+      self.lguide.part_model()
+    )
+
+  def posts(self):
+    return \
+    union()(
+      translate([0, self.lguide.length/2+1.5])(
+        self.p1.part_model()
+      ),
+      translate([0, -self.lguide.length/2-1.5])(
+        self.p2.part_model()
+      )
+    )
+
 if __name__ == '__main__':
   from pinball.playfield import Playfield
 
   pf = Playfield(400,600)
-  pf.append(LaneGuide(), [200,120])
-  pf.append(LaneGuide(), [250,100])
-  pf.append(LaneGuide(), [300,120])
+  pf.append(LaneGuideAssembly(), [200,120])
+  pf.append(LaneGuideAssembly(), [250,100])
+  pf.append(LaneGuideAssembly(), [300,120])
 
   scad_render_to_file( pf.assembly(), '/tmp/laneguide_example.scad')
 
