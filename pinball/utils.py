@@ -3,7 +3,7 @@
 # (c)2012 Felipe Sanches <fsanches@metamaquina.com.br>
 # licensed under GPLv3 or later
 
-from pyopenscad import *
+from solid import *
 from math import cos, sin, pi
 
 inch=25.4

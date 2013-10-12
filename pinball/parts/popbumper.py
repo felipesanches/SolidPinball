@@ -6,7 +6,7 @@
 # (c)2012 Felipe Sanches <fsanches@metamaquina.com.br>
 # licensed under GPLv3 or later
 
-from pyopenscad import *
+from solid import *
 from pinball.utils import *
 from pinball.parts.PinballPart import PinballPart
 

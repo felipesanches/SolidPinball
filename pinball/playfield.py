@@ -7,7 +7,7 @@
 # licensed under GPLv3 or later
 
 from pinball.utils import *
-from pyopenscad import *
+from solid import *
 
 class Playfield(object):
   def __init__(self, width, height, position=[0,0,0], thickness=DEFAULT_PF_THICKNESS):
