@@ -38,7 +38,7 @@ class Post(PinballPart):
         )
       ),
       translate([0,0,-1])(
-        cylinder(r=m3_diameter/2, h=H+2, segments=20)
+        cylinder(r=m4_diameter/2, h=H+2, segments=20)
       ),
 
       translate([0,0,self.rubber_height])(
