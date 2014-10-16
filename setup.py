@@ -7,7 +7,7 @@ setup(name='solidpinball',
       author='Felipe Correa da Silva Sanches',
       author_email='juca@members.fsf.org',
       url='https://github.com/felipesanches/SolidPinball/',
-      download_url = 'https://github.com/felipesanches/SolidPinball/tarball/2014.10.15',
+      download_url = 'https://github.com/felipesanches/SolidPinball/releases/tag/0.2014.10.15',
       install_requires=['solidpython'],
       classifiers=[
         "Programming Language :: Python",
