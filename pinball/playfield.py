@@ -10,9 +10,11 @@ from pinball.utils import *
 from solid import *
 
 class Playfield(object):
-  def __init__(self, width, height, position=[0,0,0], thickness=DEFAULT_PF_THICKNESS):
+  def __init__(self, width, height, border_width=18, border_height=25, position=[0,0,0], thickness=DEFAULT_PF_THICKNESS):
     self.width = width
     self.height = height
+    self.border_width = border_width
+    self.border_height = border_height
     self.thickness = thickness
     self.position = position
     self.parts = []
@@ -53,6 +55,24 @@ class Playfield(object):
 
   def assembly(self):
     asm = self.wood()
+
+    #top border
+    asm += \
+	translate([0, self.height, -self.thickness])(
+		cube([self.width, self.border_width, self.border_height + self.thickness])
+	)
+
+    #left border
+    asm += \
+	translate([-self.border_width,0,-self.thickness])(
+		cube([self.border_width, self.height + self.border_width, self.border_height + self.thickness])
+	)
+
+    #right border
+    asm += \
+    translate([self.width, 0, -self.thickness])(
+	    cube([self.border_width, self.height + self.border_width, self.border_height + self.thickness])
+	)
 
     for part in self.parts:
       if part.part_model():
