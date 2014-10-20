@@ -96,5 +96,5 @@ if __name__ == '__main__':
   pf.append(Flipper(angle = -30), [100,100])
   pf.append(Flipper(angle = 180+30), [300,100])
 
-  scad_render_to_file( pf.assembly(), 'flipper_example.scad')
+  scad_render_to_file( pf.assembly(), '/tmp/flipper_example.scad')
 
